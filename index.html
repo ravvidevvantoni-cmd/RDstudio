@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="id" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ravvi Devvantoni | Content Creator & Digital Marketing Specialist</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            900: '#0c4a6e',
+                        },
+                        darkbg: '#0b0f19',
+                        cardbg: '#111827',
+                        cardborder: '#1f2937'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .glass-header {
+            background: rgba(11, 15, 25, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .glow-effect {
+            box-shadow: 0 0 25px -5px rgba(56, 189, 248, 0.3);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="bg-darkbg text-slate-100 min-h-screen flex flex-col selection:bg-primary-500 selection:text-white">
+
+    <!-- Toast Notification Container -->
+    <div id="toast" class="fixed bottom-5 right-5 z-50 transform translate-y-20 opacity-0 transition-all duration-300 ease-out bg-slate-800 text-white border border-primary-500 px-5 py-3 rounded-xl shadow-2xl flex items-center gap-3">
+        <i class="fa-solid fa-circle-check text-primary-400 text-lg"></i>
+        <span id="toast-msg">Teks berhasil disalin!</span>
+    </div>
+
+    <header class="fixed top-0 left-0 w-full z-40 glass-header border-b border-slate-800/80 transition-all">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#" class="text-xl font-black tracking-wider text-white flex items-center gap-2 group">
+                <span class="w-9 h-9 rounded-lg bg-gradient-to-br from-primary-400 to-indigo-600 flex items-center justify-center text-white shadow-lg shadow-primary-500/20 group-hover:scale-105 transition-transform">RD</span>
+                <span>RAVVI <span class="text-primary-400">DEVVANTONI</span></span>
+            </a>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
+                <a href="#beranda" class="hover:text-primary-400 transition-colors">Beranda</a>
+                <a href="#tentang" class="hover:text-primary-400 transition-colors">Tentang</a>
+                <a href="#keahlian" class="hover:text-primary-400 transition-colors">Keahlian</a>
+                <a href="#proyek" class="hover:text-primary-400 transition-colors">Proyek</a>
+                <a href="#kontak" class="hover:text-primary-400 transition-colors">Kontak</a>
+            </nav>
+
+            <!-- Actions -->
+            <div class="hidden md:flex items-center gap-4">
+                <a href="#kontak" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-primary-500 to-indigo-600 hover:from-primary-600 hover:to-indigo-700 text-white font-semibold text-sm shadow-lg shadow-primary-500/25 transition-all transform hover:-translate-y-0.5 active:translate-y-0">
+                    Hubungi Saya
+                </a>
+            </div>
+
+            <!-- Mobile Menu Toggle Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-slate-300 hover:text-white p-2 focus:outline-none" aria-label="Toggle menu">
+                <i class="fa-solid fa-bars text-xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-cardbg border-b border-slate-800 px-6 py-6 flex flex-col gap-4">
+            <a href="#beranda" class="mobile-link text-slate-300 hover:text-primary-400 py-2">Beranda</a>
+            <a href="#tentang" class="mobile-link text-slate-300 hover:text-primary-400 py-2">Tentang</a>
+            <a href="#keahlian" class="mobile-link text-slate-300 hover:text-primary-400 py-2">Keahlian</a>
+            <a href="#proyek" class="mobile-link text-slate-300 hover:text-primary-400 py-2">Proyek</a>
+            <a href="#kontak" class="mobile-link text-slate-300 hover:text-primary-400 py-2">Kontak</a>
+            <a href="#kontak" class="mobile-link text-center mt-2 px-5 py-3 rounded-xl bg-primary-500 text-white font-semibold text-sm">
+                Hubungi Saya
+            </a>
+        </div>
+    </header>
+
+    <main class="flex-grow pt-20">
+        <section id="beranda" class="relative min-h-[90vh] flex items-center justify-center px-4 sm:px-6 lg:px-8 py-16 overflow-hidden">
+            <!-- Background Glow Elements -->
+            <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-primary-500/10 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute bottom-10 right-10 w-80 h-80 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div class="max-w-4xl mx-auto text-center relative z-10">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/80 border border-slate-700/60 text-primary-400 text-xs sm:text-sm font-medium mb-8 shadow-inner">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                    📍 Tarakan, Kalimantan Utara, Indonesia
+                </div>
+
+                <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white mb-6 leading-tight">
+                    Content Creator & <br>
+                    <span class="gradient-text">Digital Marketing Specialist</span>
+                </h1>
+
+                <p class="text-base sm:text-lg lg:text-xl text-slate-400 max-w-2xl mx-auto mb-10 leading-relaxed font-normal">
+                    Merancang strategi konten kreatif, produksi media visual (foto & video), serta mengelola kampanye pemasaran digital berorientasi konversi yang memikat audiens.
+                </p>
+
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a href="#proyek" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-primary-500 to-indigo-600 hover:from-primary-600 hover:to-indigo-700 text-white font-semibold text-base shadow-xl shadow-primary-500/20 transition-all transform hover:-translate-y-0.5 active:translate-y-0 flex items-center justify-center gap-3">
+                        <i class="fa-solid fa-play text-sm"></i> lihat Karya
+                    </a>
+                    <button onclick="copyToClipboard('andarma.sdmnd@icloud.com', 'Email disalin!')" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-semibold text-base transition-all flex items-center justify-center gap-3">
+                        <i class="fa-regular fa-copy text-sm"></i> Unduh / Salin Email
+                    </button>
+                </div>
+
+                <!-- Quick Stats Badge Grid -->
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mt-16 max-w-2xl mx-auto">
+                    <div class="p-4 rounded-2xl bg-cardbg/80 border border-cardborder text-center">
+                        <div class="text-2xl sm:text-3xl font-extrabold text-primary-400">100%</div>
+                        <div class="text-xs text-slate-400 mt-1">Dedicated Growth</div>
+                    </div>
+                    <div class="p-4 rounded-2xl bg-cardbg/80 border border-cardborder text-center">
+                        <div class="text-2xl sm:text-3xl font-extrabold text-primary-400">Multi-Platform</div>
+                        <div class="text-xs text-slate-400 mt-1">TikTok, IG & YouTube</div>
+                    </div>
+                    <div class="p-4 rounded-2xl bg-cardbg/80 border border-cardborder text-center col-span-2 md:col-span-1">
+                        <div class="text-2xl sm:text-3xl font-extrabold text-primary-400">AI-Powered</div>
+                        <div class="text-xs text-slate-400 mt-1">Smart Video Workflow</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="tentang" class="py-20 bg-slate-900/50 border-y border-slate-800/60">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <div class="text-primary-400 font-semibold text-sm uppercase tracking-widest mb-2">Tentang Saya</div>
+                        <h2 class="text-3xl sm:text-4xl font-bold text-white mb-6">Membangun Hubungan Audiens Melalui Content Storytelling</h2>
+                        <p class="text-slate-300 mb-6 leading-relaxed">
+                            Sebagai profesional di bidang pembuatan konten dan pemasaran digital, saya berfokus pada pendekatan visual yang kuat, tren yang relevan, serta optimasi konversi melalui saluran affiliate & media sosial.
+                        </p>
+                        <p class="text-slate-400 mb-8 leading-relaxed text-sm">
+                            Berpengalaman dalam mengoperasikan alat produksi modern seperti CapCut PC, OBS Studio, hingga integrasi alat kecerdasan buatan (AI) untuk menciptakan aset media yang unik dan efisien.
+                        </p>
+
+                        <!-- Quick Social Media Badges -->
+                        <div class="flex flex-wrap gap-4">
+                            <a href="https://www.tiktok.com/@ouranglee" target="_blank" rel="noopener" class="px-4 py-2.5 rounded-xl bg-cardbg border border-cardborder hover:border-primary-500/50 text-slate-200 text-sm font-medium flex items-center gap-3 transition-all hover:-translate-y-1">
+                                <i class="fa-brands fa-tiktok text-primary-400"></i> TikTok @ouranglee
+                            </a>
+                            <a href="https://www.instagram.com/andarma.ansrzkyn" target="_blank" rel="noopener" class="px-4 py-2.5 rounded-xl bg-cardbg border border-cardborder hover:border-primary-500/50 text-slate-200 text-sm font-medium flex items-center gap-3 transition-all hover:-translate-y-1">
+                                <i class="fa-brands fa-instagram text-pink-400"></i> Instagram
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Visual Card Showcase -->
+                    <div class="relative">
+                        <div class="w-full rounded-2xl bg-cardbg border border-cardborder p-6 shadow-2xl relative z-10">
+                            <div class="flex items-center justify-between pb-4 mb-6 border-b border-slate-800">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                                    <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                                    <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                                </div>
+                                <span class="text-xs font-mono text-slate-500">creator_overview.config</span>
+                            </div>
+
+                            <div class="space-y-4">
+                                <div class="p-4 rounded-xl bg-slate-900/80 border border-slate-800 flex items-center justify-between">
+                                    <div class="flex items-center gap-3">
+                                        <i class="fa-solid fa-video text-primary-400"></i>
+                                        <span class="text-sm font-medium text-slate-200">Video Editing & Graphics</span>
+                                    </div>
+                                    <span class="text-xs font-semibold px-2.5 py-1 rounded bg-primary-500/10 text-primary-400">Advanced</span>
+                                </div>
+                                <div class="p-4 rounded-xl bg-slate-900/80 border border-slate-800 flex items-center justify-between">
+                                    <div class="flex items-center gap-3">
+                                        <i class="fa-solid fa-tower-broadcast text-indigo-400"></i>
+                                        <span class="text-sm font-medium text-slate-200">Live Streaming Setup</span>
+                                    </div>
+                                    <span class="text-xs font-semibold px-2.5 py-1 rounded bg-indigo-500/10 text-indigo-400">OBS & TikTok Studio</span>
+                                </div>
+                                <div class="p-4 rounded-xl bg-slate-900/80 border border-slate-800 flex items-center justify-between">
+                                    <div class="flex items-center gap-3">
+                                        <i class="fa-solid fa-arrow-trend-up text-emerald-400"></i>
+                                        <span class="text-sm font-medium text-slate-200">Affiliate Conversion</span>
+                                    </div>
+                                    <span class="text-xs font-semibold px-2.5 py-1 rounded bg-emerald-500/10 text-emerald-400">Lynk.id / Linktree</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="keahlian" class="py-20 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <div class="text-primary-400 font-semibold text-sm uppercase tracking-widest mb-2">Spesialisasi & Tools</div>
+                <h2 class="text-3xl sm:text-4xl font-bold text-white">Keahlian & Alat Kerja Utama</h2>
+            </div>
+
+            <!-- Tab Buttons -->
+            <div class="flex justify-center mb-10 overflow-x-auto pb-2">
+                <div class="bg-cardbg border border-cardborder p-1.5 rounded-2xl flex gap-2">
+                    <button onclick="switchTab('digital-marketing')" id="tab-btn-digital-marketing" class="tab-btn px-5 py-2.5 rounded-xl font-medium text-sm transition-all bg-primary-500 text-white shadow-md">
+                        Digital Marketing
+                    </button>
+                    <button onclick="switchTab('content-creation')" id="tab-btn-content-creation" class="tab-btn px-5 py-2.5 rounded-xl font-medium text-sm text-slate-400 hover:text-white transition-all">
+                        Content Production
+                    </button>
+                    <button onclick="switchTab('software-tools')" id="tab-btn-software-tools" class="tab-btn px-5 py-2.5 rounded-xl font-medium text-sm text-slate-400 hover:text-white transition-all">
+                        Software & Tools
+                    </button>
+                </div>
+            </div>
+
+            <!-- Tab Contents -->
+            <div id="tab-digital-marketing" class="tab-content grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="p-6 rounded-2xl bg-cardbg border border-cardborder hover:border-primary-500/40 transition-all">
+                    <div class="w-12 h-12 rounded-xl bg-primary-500/10 text-primary-400 flex items-center justify-center text-xl mb-4"><i class="fa-solid fa-users"></i></div>
+                    <h3 class="text-lg font-bold text-white mb-2">Social Media Management</h3>
+                    <p class="text-sm text-slate-400">Pengelolaan profil secara profesional di TikTok, Instagram, dan YouTube untuk meningkatkan impresi.</p>
+                </div>
+                <div class="p-6 rounded-2xl bg-cardbg border border-cardborder hover:border-primary-500/40 transition-all">
+                    <div class="w-12 h-12 rounded-xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center text-xl mb-4"><i class="fa-solid fa-bullseye"></i></div>
+                    <h3 class="text-lg font-bold text-white mb-2">Affiliate Marketing</h3>
+                    <p class="text-sm text-slate-400">Strategi promosi produk affiliate berorientasi konversi melalui integrasi bio-link interaktif.</p>
+                </div>
+                <div class="p-6 rounded-2xl bg-cardbg border border-cardborder hover:border-primary-500/40 transition-all">
+                    <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-xl mb-4"><i class="fa-solid fa-chart-line"></i></div>
+                    <h3 class="text-lg font-bold text-white mb-2">Campaign & Analytics</h3>
+                    <p class="text-sm text-slate-400">Pemantauan metrik engagement rate, ctr, serta jangkauan views untuk optimasi berkala.</p>
+                </div>
+            </div>
+
+            <div id="tab-content-creation" class="tab-content hidden grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="p-6 rounded-2xl bg-cardbg border border-cardborder hover:border-primary-500/40 transition-all">
+                    <div class="w-12 h-12 rounded-xl bg-primary-500/10 text-primary-400 flex items-center justify-center text-xl mb-4"><i class="fa-solid fa-video"></i></div>
+                    <h3 class="text-lg font-bold text-white mb-2">Videography & Short Videos</h3>
+                    <p class="text-sm text-slate-400">Pengambilan gambar dan penyuntingan video vertikal untuk TikTok, Reels, dan Shorts.</p>
+                </div>
+                <div class="p-6 rounded-2xl bg-cardbg border border-cardborder hover:border-primary-500/40 transition-all">
+                    <div class="w-12 h-12 rounded-xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center text-xl mb-4"><i class="fa-solid fa-pen-nib"></i></div>
+                    <h3 class="text-lg font-bold text-white mb-2">Scriptwriting & Storytelling</h3>
+                    <p class="text-sm text-slate-400">Penyusunan naskah video dengan hook kuat di 3 detik pertama untuk menahan perhatian penonton.</p>
+                </div>
+                <div class="p-6 rounded-2xl bg-cardbg border border-cardborder hover:border-primary-500/40 transition-all">
+                    <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-xl mb-4"><i class="fa-solid fa-headset"></i></div>
+                    <h3 class="text-lg font-bold text-white mb-2">Live Broadcast Setup</h3>
+                    <p class="text-sm text-slate-400">Pengaturan aspek teknis live streaming menggunakan OBS Studio dan TikTok Live Studio.</p>
+                </div>
+            </div>
+
+            <div id="tab-software-tools" class="tab-content hidden grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="p-5 rounded-2xl bg-cardbg border border-cardborder text-center">
+                    <i class="fa-solid fa-scissors text-2xl text-primary-400 mb-3"></i>
+                    <h4 class="font-bold text-white text-base">CapCut PC</h4>
+                    <p class="text-xs text-slate-400 mt-1">Video Editing & Visual Effects</p>
+                </div>
+                <div class="p-5 rounded-2xl bg-cardbg border border-cardborder text-center">
+                    <i class="fa-solid fa-desktop text-2xl text-indigo-400 mb-3"></i>
+                    <h4 class="font-bold text-white text-base">OBS Studio</h4>
+                    <p class="text-xs text-slate-400 mt-1">Live Streaming Software</p>
+                </div>
+                <div class="p-5 rounded-2xl bg-cardbg border border-cardborder text-center">
+                    <i class="fa-solid fa-wand-magic-sparkles text-2xl text-emerald-400 mb-3"></i>
+                    <h4 class="font-bold text-white text-base">AI Generation Tools</h4>
+                    <p class="text-xs text-slate-400 mt-1">Generative Video & Image</p>
+                </div>
+                <div class="p-5 rounded-2xl bg-cardbg border border-cardborder text-center">
+                    <i class="fa-solid fa-palette text-2xl text-pink-400 mb-3"></i>
+                    <h4 class="font-bold text-white text-base">Photoshop & Canva</h4>
+                    <p class="text-xs text-slate-400 mt-1">Graphic Design & Thumbnails</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="proyek" class="py-20 bg-slate-900/50 border-t border-slate-800/60">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+                    <div>
+                        <div class="text-primary-400 font-semibold text-sm uppercase tracking-widest mb-2">Showcase Karya</div>
+                        <h2 class="text-3xl sm:text-4xl font-bold text-white">Studi Kasus & Portofolio</h2>
+                    </div>
+
+                    <!-- Filter Buttons -->
+                    <div class="flex flex-wrap gap-2 mt-6 md:mt-0">
+                        <button onclick="filterProjects('all')" class="filter-btn active-filter px-4 py-2 rounded-xl text-xs font-semibold transition-all bg-primary-500 text-white" data-filter="all">Semua</button>
+                        <button onclick="filterProjects('tiktok')" class="filter-btn px-4 py-2 rounded-xl text-xs font-semibold transition-all bg-cardbg border border-cardborder text-slate-300 hover:text-white" data-filter="tiktok">TikTok & Short Video</button>
+                        <button onclick="filterProjects('affiliate')" class="filter-btn px-4 py-2 rounded-xl text-xs font-semibold transition-all bg-cardbg border border-cardborder text-slate-300 hover:text-white" data-filter="affiliate">Affiliate Marketing</button>
+                        <button onclick="filterProjects('ai')" class="filter-btn px-4 py-2 rounded-xl text-xs font-semibold transition-all bg-cardbg border border-cardborder text-slate-300 hover:text-white" data-filter="ai">AI Content</button>
+                    </div>
+                </div>
+
+                <!-- Portfolio Grid with Aesthetic Images -->
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Project Item 1: Short Video Studio -->
+                    <div class="project-card project-tiktok rounded-2xl bg-cardbg border border-cardborder overflow-hidden transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-primary-500/10 group">
+                        <div class="h-52 bg-slate-800 relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1598550476439-6847785fcea6?q=80&w=800&auto=format&fit=crop" 
+                                 alt="TikTok Studio & Video Setup" 
+                                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 ease-out"
+                                 onerror="this.src='https://placehold.co/800x500/0f172a/38bdf8?text=Short+Video+Studio'">
+                            <div class="absolute inset-0 bg-gradient-to-t from-cardbg via-cardbg/20 to-transparent z-10"></div>
+                            <span class="absolute top-4 left-4 z-20 px-3 py-1 rounded-full text-xs font-bold bg-primary-500/90 backdrop-blur-md text-white shadow-lg">
+                                <i class="fa-brands fa-tiktok mr-1"></i> TikTok Video
+                            </span>
+                        </div>
+                        <div class="p-6 relative z-20">
+                            <h3 class="text-lg font-bold text-white mb-2 group-hover:text-primary-400 transition-colors">Short Video Content Production</h3>
+                            <p class="text-sm text-slate-400 mb-4">Pengembangan naskah, perekaman visual sinematik, dan editing video vertikal dengan ritme dinamis yang disesuaikan dengan algoritma TikTok.</p>
+                            <div class="flex items-center justify-between pt-4 border-t border-slate-800">
+                                <span class="text-xs text-primary-400 font-semibold flex items-center gap-1.5">
+                                    <i class="fa-solid fa-camera"></i> @ouranglee
+                                </span>
+                                <a href="https://www.tiktok.com/@ouranglee" target="_blank" rel="noopener" class="text-xs text-slate-300 hover:text-white flex items-center gap-1 transition-colors">Tonton <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project Item 2: Affiliate Marketing -->
+                    <div class="project-card project-affiliate rounded-2xl bg-cardbg border border-cardborder overflow-hidden transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-primary-500/10 group">
+                        <div class="h-52 bg-slate-800 relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop" 
+                                 alt="Digital Marketing Analytics & Desk" 
+                                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 ease-out"
+                                 onerror="this.src='https://placehold.co/800x500/0f172a/10b981?text=Affiliate+Funnel'">
+                            <div class="absolute inset-0 bg-gradient-to-t from-cardbg via-cardbg/20 to-transparent z-10"></div>
+                            <span class="absolute top-4 left-4 z-20 px-3 py-1 rounded-full text-xs font-bold bg-emerald-500/90 backdrop-blur-md text-white shadow-lg">
+                                <i class="fa-solid fa-link mr-1"></i> Affiliate Link
+                            </span>
+                        </div>
+                        <div class="p-6 relative z-20">
+                            <h3 class="text-lg font-bold text-white mb-2 group-hover:text-emerald-400 transition-colors">Digital Affiliate Bio-Link Funnel</h3>
+                            <p class="text-sm text-slate-400 mb-4">Membangun landing page khusus (Linktree/Lynk.id) terstruktur untuk mengarahkan audiens media sosial menuju saluran pembelian secara efektif.</p>
+                            <div class="flex items-center justify-between pt-4 border-t border-slate-800">
+                                <span class="text-xs text-emerald-400 font-semibold flex items-center gap-1.5">
+                                    <i class="fa-solid fa-chart-line"></i> Lynk.id Integration
+                                </span>
+                                <button onclick="copyToClipboard('https://www.tiktok.com/@ouranglee', 'Link disalin!')" class="text-xs text-slate-300 hover:text-white transition-colors">Salin Tautan</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project Item 3: AI-Assisted Creative Content -->
+                    <div class="project-card project-ai rounded-2xl bg-cardbg border border-cardborder overflow-hidden transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-primary-500/10 group">
+                        <div class="h-52 bg-slate-800 relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=800&auto=format&fit=crop" 
+                                 alt="AI Digital Artwork & Workspace" 
+                                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 ease-out"
+                                 onerror="this.src='https://placehold.co/800x500/0f172a/6366f1?text=AI+Visual+Pipeline'">
+                            <div class="absolute inset-0 bg-gradient-to-t from-cardbg via-cardbg/20 to-transparent z-10"></div>
+                            <span class="absolute top-4 left-4 z-20 px-3 py-1 rounded-full text-xs font-bold bg-indigo-500/90 backdrop-blur-md text-white shadow-lg">
+                                <i class="fa-solid fa-robot mr-1"></i> AI Visuals
+                            </span>
+                        </div>
+                        <div class="p-6 relative z-20">
+                            <h3 class="text-lg font-bold text-white mb-2 group-hover:text-indigo-400 transition-colors">AI-Assisted Video Pipeline</h3>
+                            <p class="text-sm text-slate-400 mb-4">Pemanfaatan generator AI visual untuk menciptakan elemen gambar dan efek video unik serta mempercepat alur kerja produksi media digital.</p>
+                            <div class="flex items-center justify-between pt-4 border-t border-slate-800">
+                                <span class="text-xs text-indigo-400 font-semibold flex items-center gap-1.5">
+                                    <i class="fa-solid fa-wand-magic-sparkles"></i> AI Generated Assets
+                                </span>
+                                <span class="text-xs text-slate-400">Efisiensi Tinggi</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="kontak" class="py-20 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-12">
+                <div>
+                    <div class="text-primary-400 font-semibold text-sm uppercase tracking-widest mb-2">Hubungi Saya</div>
+                    <h2 class="text-3xl sm:text-4xl font-bold text-white mb-6">Mari Berkolaborasi dalam Proyek Berikutnya</h2>
+                    <p class="text-slate-400 mb-8 leading-relaxed">
+                        Tertarik bekerja sama untuk proyek pembuatan konten, promosi affiliate, atau manajemen digital marketing? Silakan kirim pesan atau hubungi kontak langsung.
+                    </p>
+
+                    <div class="space-y-4">
+                        <button onclick="copyToClipboard('082395034987', 'Nomor WhatsApp disalin!')" class="w-full p-4 rounded-2xl bg-cardbg border border-cardborder hover:border-primary-500/50 flex items-center justify-between transition-all group">
+                            <div class="flex items-center gap-4">
+                                <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center"><i class="fa-brands fa-whatsapp text-lg"></i></div>
+                                <div class="text-left">
+                                    <div class="text-xs text-slate-400">WhatsApp</div>
+                                    <div class="text-sm font-semibold text-white">082395034987</div>
+                                </div>
+                            </div>
+                            <span class="text-xs text-primary-400 group-hover:underline">Salin Nomor</span>
+                        </button>
+
+                        <button onclick="copyToClipboard('andarma.sdmnd@icloud.com', 'Alamat Email disalin!')" class="w-full p-4 rounded-2xl bg-cardbg border border-cardborder hover:border-primary-500/50 flex items-center justify-between transition-all group">
+                            <div class="flex items-center gap-4">
+                                <div class="w-10 h-10 rounded-xl bg-primary-500/10 text-primary-400 flex items-center justify-center"><i class="fa-regular fa-envelope text-lg"></i></div>
+                                <div class="text-left">
+                                    <div class="text-xs text-slate-400">Email</div>
+                                    <div class="text-sm font-semibold text-white">andarma.sdmnd@icloud.com</div>
+                                </div>
+                            </div>
+                            <span class="text-xs text-primary-400 group-hover:underline">Salin Email</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Contact Form UI -->
+                <div class="bg-cardbg border border-cardborder p-8 rounded-2xl shadow-xl">
+                    <form id="contact-form" onsubmit="handleFormSubmit(event)" class="space-y-5">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Nama Lengkap</label>
+                            <input type="text" required placeholder="Masukkan nama Anda" class="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-800 text-white placeholder-slate-500 focus:outline-none focus:border-primary-500 text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Email / Kontak</label>
+                            <input type="email" required placeholder="alamat@email.com" class="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-800 text-white placeholder-slate-500 focus:outline-none focus:border-primary-500 text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Pesan Proyek</label>
+                            <textarea rows="4" required placeholder="Tuliskan detail proyek atau pertanyaan Anda..." class="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-800 text-white placeholder-slate-500 focus:outline-none focus:border-primary-500 text-sm resize-none"></textarea>
+                        </div>
+                        <button type="submit" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-primary-500 to-indigo-600 hover:from-primary-600 hover:to-indigo-700 text-white font-semibold text-sm shadow-lg shadow-primary-500/20 transition-all">
+                            Kirim Pesan
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-8 border-t border-slate-800/80 bg-slate-950 text-center text-xs text-slate-500">
+        <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div>© 2026 Ravvi Devvantoni. All rights reserved.</div>
+            <div class="flex gap-6 text-slate-400">
+                <a href="https://www.tiktok.com/@ouranglee" target="_blank" class="hover:text-primary-400">TikTok</a>
+                <a href="https://www.instagram.com/andarma.ansrzkyn" target="_blank" class="hover:text-primary-400">Instagram</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle Logic
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        mobileBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Interactive Copy to Clipboard Function
+        function copyToClipboard(text, customMessage) {
+            const tempInput = document.createElement('input');
+            tempInput.value = text;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+
+            showToast(customMessage || 'Teks berhasil disalin!');
+        }
+
+        // Custom Toast Notification
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toast-msg');
+            toastMsg.innerText = msg;
+
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            toast.classList.add('translate-y-0', 'opacity-100');
+
+            setTimeout(() => {
+                toast.classList.remove('translate-y-0', 'opacity-100');
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 3000);
+        }
+
+        // Skills Tab Switcher
+        function switchTab(tabName) {
+            const contents = document.querySelectorAll('.tab-content');
+            const buttons = document.querySelectorAll('.tab-btn');
+
+            contents.forEach(content => content.classList.add('hidden'));
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-primary-500', 'text-white', 'shadow-md');
+                btn.classList.add('text-slate-400');
+            });
+
+            document.getElementById(`tab-${tabName}`).classList.remove('hidden');
+            
+            const activeBtn = document.getElementById(`tab-btn-${tabName}`);
+            activeBtn.classList.add('bg-primary-500', 'text-white', 'shadow-md');
+            activeBtn.classList.remove('text-slate-400');
+        }
+
+        // Portfolio Project Filter
+        function filterProjects(category) {
+            const cards = document.querySelectorAll('.project-card');
+            const buttons = document.querySelectorAll('.filter-btn');
+
+            buttons.forEach(btn => {
+                if (btn.getAttribute('data-filter') === category) {
+                    btn.classList.add('bg-primary-500', 'text-white');
+                    btn.classList.remove('bg-cardbg', 'text-slate-300');
+                } else {
+                    btn.classList.remove('bg-primary-500', 'text-white');
+                    btn.classList.add('bg-cardbg', 'text-slate-300');
+                }
+            });
+
+            cards.forEach(card => {
+                if (category === 'all' || card.classList.contains(`project-${category}`)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Contact Form Submission UI Feedback
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            showToast('Terima kasih! Pesan Anda berhasil terkirim.');
+            document.getElementById('contact-form').reset();
+        }
+    </script>
+</body>
+</html>
